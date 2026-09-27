@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mama's Fun Land | Butlav, Gujarat | Water Park, Adventure &amp; One Day Picnic</title>
+<meta content="Mama's Fun Land Butlav, Gujarat: The premier one-day picnic spot near Navsari. Swimming pools, zip-line, ATV rides, archery, body zorbing &amp; delicious food from only ₹200." name="description"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Bungee&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0b2545',
+              dark: '#06182e',
+              cyan: '#00c4cc',
+              blue: '#0284c7',
+              yellow: '#ffb703',
+              orange: '#fb8500',
+              green: '#25D366',
+              lime: '#10b981',
+              lightBlue: '#e0f2fe'
+            }
+          },
+          fontFamily: {
+            fun: ['Fredoka', 'cursive', 'sans-serif'],
+            bungee: ['Bungee', 'cursive', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-fast': 'float 3.5s ease-in-out infinite',
+            'pulse-soft': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'wave-slow': 'wave 12s linear infinite',
+            'wave-reverse': 'waveRev 9s linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-14px)' },
+            },
+            wave: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' }
+            },
+            waveRev: {
+              '0%': { transform: 'translateX(-50%)' },
+              '100%': { transform: 'translateX(0)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- External GSAP for smooth animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<!-- Layout and Utility Styles -->
+<style data-purpose="layout-styling">
+    .glassmorphism {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .glass-dark {
+      background: rgba(6, 24, 46, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(2, 132, 199, 0.15);
+      box-shadow: 0 10px 30px -10px rgba(2, 132, 199, 0.15);
+    }
+    /* Wave animation ribbon */
+    .wave-wrapper {
+      position: absolute;
+      left: 0;
+      width: 200%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    /* Bubble canvas */
+    #ambientBubbles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+    /* Fun custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e0f2fe;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #00c4cc;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0284c7;
+    }
+  </style>
+</head>
+<!-- PAGE LOADER -->
+<div id="pageLoader" style="position:fixed;inset:0;z-index:9999;background:#0b2545;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;">
+  <div style="position:relative;width:100%;height:80px;overflow:hidden;margin-top:8px;">
+    <svg viewBox="0 0 1200 80" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;width:200%;animation:waveMove 1.8s linear infinite;">
+      <path d="M0,40 C150,10 350,70 500,40 C650,10 850,70 1000,40 C1150,10 1350,70 1200,40 L1200,80 L0,80 Z" fill="#00c4cc" opacity="0.7"/>
+    </svg>
+    <svg viewBox="0 0 1200 80" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;width:200%;animation:waveMove2 2.4s linear infinite;">
+      <path d="M0,50 C200,20 400,70 600,45 C800,20 1000,65 1200,45 L1200,80 L0,80 Z" fill="#0284c7" opacity="0.5"/>
+    </svg>
+    <svg viewBox="0 0 1200 80" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;width:200%;animation:waveMove3 3s linear infinite;">
+      <path d="M0,55 C250,30 500,75 750,50 C1000,25 1150,70 1200,55 L1200,80 L0,80 Z" fill="#ffffff" opacity="0.3"/>
+    </svg>
+  </div>
+  <p style="color:#00c4cc;font-family:Fredoka,sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:2px;margin-top:12px;animation:loaderPulse 1.2s ease-in-out infinite;">Loading Fun...</p>
+</div>
+<style>
+@keyframes waveMove { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+@keyframes waveMove2 { 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
+@keyframes waveMove3 { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+@keyframes loaderPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.8;transform:scale(1.05)} }
+@keyframes loaderFadeOut { to{opacity:0;pointer-events:none;visibility:hidden} }
+</style>
+<script>
+window.addEventListener('load', function() {
+  var loader = document.getElementById('pageLoader');
+  if (loader) {
+    loader.style.animation = 'loaderFadeOut 0.7s ease forwards';
+    setTimeout(function(){ loader.style.display = 'none'; }, 700);
+  }
+});
+</script>
+
+<body class="font-sans text-slate-800 bg-sky-50/50 antialiased overflow-x-hidden selection:bg-brand-orange selection:text-white">
+<!-- BEGIN: NavigationBar -->
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glassmorphism shadow-sm" id="siteHeader">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<!-- Logo Brand -->
+<a aria-label="Mama's Fun Land Home" class="flex items-center gap-3 group transition-transform duration-200 active:scale-95" href="#hero">
+<div class="relative w-14 h-14 md:w-16 md:h-16 overflow-hidden">
+<img alt="Mama's Fun Land Butlav Logo - Water &amp; Adventure Park" src="Logo.jpg" class="w-full h-full object-contain" />
+</div>
+<div class="flex flex-col">
+<span class="font-fun text-xl md:text-2xl font-bold tracking-tight text-brand-navy leading-none">Mama's <span class="text-brand-orange">Fun Land</span></span>
+<span class="text-xs font-semibold text-brand-blue uppercase tracking-widest mt-0.5 flex items-center gap-1">Butlav, Gujarat</span>
+</div>
+</a>
+<!-- Desktop Navigation Links -->
+<nav aria-label="Main Navigation" class="hidden lg:flex items-center space-x-7">
+<a class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors" href="#hero">Home</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors" href="#about">About</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors" href="#activities">Activities</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors" href="#pricing">Pricing</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors" href="#gallery">Gallery</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors" href="#reviews">Reviews</a>
+<a class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors" href="#contact">Location</a>
+</nav>
+<!-- Right Action: Mobile Toggle -->
+<div class="flex items-center gap-3">
+<!-- Mobile Hamburger Toggle -->
+<button aria-expanded="false" aria-label="Toggle Mobile Menu" class="lg:hidden p-2.5 rounded-xl bg-white/70 border border-slate-200 text-slate-700 hover:text-brand-blue hover:bg-white focus:outline-none transition-all shadow-sm" id="mobileMenuToggle" type="button">
+<svg class="w-6 h-6 stroke-current" fill="none" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" id="burgerIcon" stroke-linecap="round" stroke-linejoin="round"></path>
+<path class="hidden" d="M6 18L18 6M6 6l12 12" id="closeIcon" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+<!-- Mobile Slide-Down Drawer Navigation -->
+<div class="hidden lg:hidden border-t border-slate-200/80 bg-white/95 backdrop-blur-xl px-6 py-6 transition-all duration-300 shadow-xl" id="mobileDrawer">
+<div class="flex flex-col space-y-4">
+<a class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-brand-blue transition-colors py-1" href="#hero">Home</a>
+<a class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-brand-blue transition-colors py-1" href="#about">About Us</a>
+<a class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-brand-blue transition-colors py-1" href="#activities">Activities</a>
+<a class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-brand-blue transition-colors py-1" href="#pricing">Pricing</a>
+<a class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-brand-blue transition-colors py-1" href="#gallery">Gallery</a>
+<a class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-brand-blue transition-colors py-1" href="#reviews">Reviews</a>
+<a class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-brand-blue transition-colors py-1" href="#contact">Location</a>
+</div>
+</div>
+</header>
+<!-- END: NavigationBar -->
+<!-- BEGIN: HeroSection -->
+<section class="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-b from-sky-100 via-sky-50 to-blue-50" id="hero">
+<!-- Ambient Floating Bubble Canvas Background -->
+<canvas id="ambientBubbles"></canvas>
+<!-- Background Decorative Gradient Blobs -->
+<div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-cyan/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/3 -right-32 w-96 h-96 bg-brand-yellow/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-10 left-1/4 w-80 h-80 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 z-20 w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Hero Content Column -->
+<div class="lg:col-span-7 text-center lg:text-left space-y-6">
+<!-- Picnic Spot Badge -->
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 shadow-sm border border-brand-blue/20 backdrop-blur-md">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
+<span class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-brand-navy font-fun">
+              One Day Picnic Spot • Near Navsari
+            </span>
+</div>
+<!-- Main Bold Headline with Fun Typography -->
+<h1 class="text-4xl sm:text-6xl xl:text-7xl font-fun font-black tracking-tight text-brand-navy leading-[1.08]">
+            WELCOME TO <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-brand-cyan to-brand-orange drop-shadow-sm">
+              MAMA'S FUN LAND
+            </span>
+</h1>
+<!-- Tagline -->
+<p class="text-lg sm:text-2xl font-fun font-semibold text-brand-orange uppercase tracking-wide flex items-center justify-center lg:justify-start gap-3">
+<span>Water</span>
+<span class="text-brand-cyan text-sm">◆</span>
+<span>Adventure</span>
+<span class="text-brand-cyan text-sm">◆</span>
+<span>Picnic</span>
+<span class="text-brand-cyan text-sm">◆</span>
+<span>Fun</span>
+</p>
+<!-- Supportive Description Copy -->
+<p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+            Create unforgettable memories with water slides, 2 massive swimming pools, rain dance, zip line, ATV rides, archery, body zorbing &amp; delicious Gujarati catering near Butlav, Gujarat.
+          </p>
+<!-- CTAs & Direct WhatsApp Button -->
+<div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+<a class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-green hover:bg-emerald-600 text-white font-fun font-bold text-lg shadow-xl shadow-emerald-500/30 flex items-center justify-center gap-3 transition-transform hover:-translate-y-1 active:translate-y-0" href="https://wa.me/919558814187?text=Hello%20Mama's%20Fun%20Land,%20I%20want%20to%20know%20more%20about%20visiting,%20ticket%20prices%20and%20activities." rel="noopener noreferrer" target="_blank">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path>
+</svg>
+<span>BOOK ON WHATSAPP</span>
+</a>
+<a class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white hover:bg-slate-50 text-brand-navy border-2 border-slate-200 font-fun font-bold text-lg shadow-sm hover:shadow-md flex items-center justify-center gap-2 transition-transform hover:-translate-y-1" href="#activities">
+<span>EXPLORE FUN</span>
+</a>
+</div>
+<!-- Quick Highlight Pills -->
+<div class="grid grid-cols-3 gap-2 sm:gap-4 pt-4 text-center">
+<div class="p-3 bg-white/70 rounded-2xl border border-sky-100 shadow-sm">
+<p class="text-xs font-semibold text-slate-500 uppercase">Timing</p>
+<p class="text-sm sm:text-base font-fun font-bold text-brand-navy mt-0.5">10 AM – 5 PM</p>
+</div>
+<div class="p-3 bg-white/70 rounded-2xl border border-sky-100 shadow-sm">
+<p class="text-xs font-semibold text-slate-500 uppercase">Entry From</p>
+<p class="text-sm sm:text-base font-fun font-bold text-brand-orange mt-0.5">₹200 / Child</p>
+</div>
+<div class="p-3 bg-white/70 rounded-2xl border border-sky-100 shadow-sm">
+<p class="text-xs font-semibold text-slate-500 leading-none">Water Fun</p>
+<p class="text-sm font-fun font-bold text-brand-navy mt-1">2 Fresh Pools</p>
+</div>
+</div>
+</div>
+<!-- Right Visual Column: 3D Animated Hero Carousel Showcase -->
+<div class="lg:col-span-5 relative" id="heroVisualContainer">
+<!-- Outer decorative frame with 3D Tilt effect -->
+<div class="relative mx-auto max-w-md lg:max-w-none">
+<!-- Floating Main Graphic Display -->
+<div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white p-3 transform transition-all duration-300 hover:rotate-1">
+<!-- Featured Artwork Showcase from Snapshot -->
+<div class="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-brand-blue via-sky-400 to-amber-300 flex items-center justify-center p-2 group">
+<img alt="Mama's Fun Land Adventure Park activities - Target Archery, Zip Line, ATV, Water Pool, Body Zorbing and Paintball" class="w-full h-full object-contain filter drop-shadow-xl group-hover:scale-105 transition-transform duration-500" src="Logo.jpg" />
+<!-- Floating Price Stamp Overlay -->
+<div class="absolute bottom-3 left-3 right-3 bg-brand-orange/95 backdrop-blur text-white px-4 py-1 rounded-xl text-center shadow-lg">
+<span class="font-fun font-bold text-sm tracking-wider uppercase">One Day Picnic In Just ₹250 only (Adults)</span>
+</div>
+</div>
+</div>
+<!-- Floating Badge Card 1 -->
+<div class="absolute -top-6 -right-6 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-sky-100 flex items-center gap-3 animate-float-slow hidden sm:flex">
+<div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600 text-xl font-bold">
+                🎯
+              </div>
+<div>
+<p class="text-xs font-semibold text-slate-500 leading-none">Adventure</p>
+<p class="text-sm font-fun font-bold text-brand-navy mt-1">Archery &amp; ATV</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Base Multi-Layered SVG Water Waves -->
+<div class="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
+<svg class="relative block w-full h-12 sm:h-20 text-sky-200/50" preserveaspectratio="none" viewbox="0 0 1200 120">
+<path d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,40 L1200,120 L0,120 Z" fill="currentColor"></path>
+</svg>
+<svg class="relative block w-full h-10 sm:h-16 text-white -mt-8 sm:-mt-12" preserveaspectratio="none" viewbox="0 0 1200 120">
+<path d="M0,0 C200,60 400,20 600,60 C800,100 1000,30 1200,50 L1200,120 L0,120 Z" fill="currentColor"></path>
+</svg>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: AboutSection -->
+<section class="py-20 lg:py-28 bg-white relative" id="about">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Image & Visual Story -->
+<div class="lg:col-span-6 relative">
+  <div class="relative mx-auto rounded-3xl p-3 bg-gradient-to-tr from-sky-400 to-amber-300 shadow-xl">
+    <div class="relative bg-slate-900 rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center">
+      <img alt="Mama's Fun Land Family Experience" class="w-full h-full transform hover:scale-105 transition-all duration-700 opacity-90" src="Logo.jpg"/>
+    </div>
+  </div>
+<!-- Experience Ribbon -->
+<div class="absolute -bottom-6 right-4 sm:-right-4 bg-white shadow-xl rounded-2xl p-4 border border-sky-100 flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-brand-green/20 flex items-center justify-center text-brand-green font-bold text-2xl">
+              ✓
+            </div>
+<div>
+<p class="font-fun text-xl font-bold text-brand-navy">Google 4.1 ★</p>
+<p class="text-xs text-slate-500 font-medium">Over hundreds of satisfied visitors</p>
+</div>
+</div>
+</div>
+<!-- Right Content Block -->
+<div class="lg:col-span-6 space-y-6">
+  <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100 text-brand-blue text-xs font-bold uppercase tracking-wider font-fun">More Than Just A Water Park</div>
+  <h2 class="text-3xl sm:text-5xl font-fun font-bold text-brand-navy leading-tight">The Ultimate Family &amp; School <span class="text-brand-orange">One Day Retreat</span></h2>
+  <p class="text-slate-600 text-base sm:text-lg leading-relaxed">Mama's Fun Land is specifically crafted to bring families, friends, school excursions, and tuition groups together under one sunny open-air haven. Situated in the calm surroundings of Butlav, near the 66KV GEB Substation, it is the quickest escape from urban rush.</p>
+  <p class="text-slate-600 text-sm sm:text-base leading-relaxed">Whether you want to plunge into clean, filtered swimming pools with rhythmic music, challenge friends on the zip-line, steer off-road 4x4 ATVs, shoot targets in paint-ball arenas, or let youngsters jump freely on trampolines—Mama's Fun Land guarantees pure joy.</p>
+<!-- Interactive Counters -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-100">
+  <div class="text-center p-3 rounded-xl bg-sky-50">
+    <span class="block font-fun text-3xl font-extrabold text-brand-blue">2</span>
+    <span class="text-xs font-semibold text-slate-600 mt-1 block">Fresh Pools</span>
+  </div>
+  <div class="text-center p-3 rounded-xl bg-amber-50">
+    <span class="block font-fun text-3xl font-extrabold text-brand-orange">15+</span>
+    <span class="text-xs font-semibold text-slate-600 mt-1 block">Fun Activities</span>
+  </div>
+  <div class="text-center p-3 rounded-xl bg-emerald-50">
+    <span class="block font-fun text-3xl font-extrabold text-brand-green">15-20</span>
+    <span class="text-xs font-semibold text-slate-600 mt-1 block">Min from Navsari</span>
+  </div>
+  <div class="text-center p-3 rounded-xl bg-rose-50">
+    <span class="block font-fun text-3xl font-extrabold text-rose-600">₹200</span>
+    <span class="text-xs font-semibold text-slate-600 mt-1 block">Starting Entry</span>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AboutSection -->
+<!-- BEGIN: ActivitiesSection -->
+<section class="py-1 lg:py-1 bg-gradient-to-b from-white via-sky-50/70 to-white relative" id="activities">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Section Title & Badge -->
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-fun font-bold uppercase tracking-wider mb-3">
+          Non-Stop Fun &amp; Games
+        </span>
+<h2 class="text-3xl sm:text-5xl font-fun font-bold text-brand-navy">
+          Adventure &amp; Water Attractions
+        </h2>
+<p class="mt-4 text-slate-600 text-base sm:text-lg">
+          We clearly separate your journey into full complimentary access with your entry pass, and thrilling pay-per-play adventure rides.
+        </p>
+<!-- Filter / Classification Pills -->
+<div class="flex flex-wrap items-center justify-center gap-3 mt-8" id="activityTabContainer">
+<button class="activity-tab-btn active px-5 py-2.5 rounded-full font-fun text-sm font-semibold transition-all bg-brand-navy text-white shadow-md shadow-brand-navy/20" data-target="all" type="button">
+            All Experiences
+          </button>
+<button class="activity-tab-btn px-5 py-2.5 rounded-full font-fun text-sm font-semibold transition-all bg-white text-slate-600 hover:text-brand-blue border border-slate-200" data-target="included" type="button">
+            Included In Entry Ticket (Free)
+          </button>
+<button class="activity-tab-btn px-5 py-2.5 rounded-full font-fun text-sm font-semibold transition-all bg-white text-slate-600 hover:text-brand-blue border border-slate-200" data-target="extra" type="button">
+            Special Adventure Add-ons
+          </button>
+</div>
+</div>
+<!-- Activity Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="activityGrid">
+<!-- Activity Card 1: 2 Swimming Pools -->
+<div class="activity-card group rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col" data-category="included">
+<div class="relative h-56 bg-sky-200 overflow-hidden">
+<div class="w-full h-full bg-gradient-to-tr from-brand-blue to-cyan-400 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+<span class="text-7xl">🏊‍♀️</span>
+</div>
+<span class="absolute top-4 right-4 bg-emerald-500 text-white text-xs font-fun font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow">
+              Included In Pass
+            </span>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-fun text-xl font-bold text-brand-navy group-hover:text-brand-blue transition-colors">2 Large Swimming Pools</h3>
+<p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                Crystal clear, filtered swimming pools suitable for all ages. Enjoy dedicated sections with good vibing music to splash the heat away.
+              </p>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+<span>Depth: Child to Adult</span>
+<span class="text-emerald-600 font-bold">FREE WITH TICKET</span>
+</div>
+</div>
+</div>
+<!-- Activity Card 2: Rain Dance -->
+<div class="activity-card group rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col" data-category="included">
+<div class="relative h-56 bg-sky-200 overflow-hidden">
+<div class="w-full h-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+<span class="text-7xl">🌧️</span>
+</div>
+<span class="absolute top-4 right-4 bg-emerald-500 text-white text-xs font-fun font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow">
+              Included In Pass
+            </span>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-fun text-xl font-bold text-brand-navy group-hover:text-brand-blue transition-colors">Rain Dance &amp; Sound Beats</h3>
+<p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                High-pressure rain showers accompanied by foot-tapping Bollywood &amp; Gujarati hits. Perfect for friends &amp; tuition picnic groups.
+              </p>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+<span>Sound System Active</span>
+<span class="text-emerald-600 font-bold">FREE WITH TICKET</span>
+</div>
+</div>
+</div>
+<!-- Activity Card 3: Adventure Zip Line -->
+<div class="activity-card group rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col" data-category="included">
+<div class="relative h-56 bg-sky-200 overflow-hidden">
+<div class="w-full h-full bg-gradient-to-tr from-amber-400 to-orange-500 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+<span class="text-7xl">🧗‍♂️</span>
+</div>
+<span class="absolute top-4 right-4 bg-emerald-500 text-white text-xs font-fun font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow">
+              Included In Pass
+            </span>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-fun text-xl font-bold text-brand-navy group-hover:text-brand-blue transition-colors">Zip Line &amp; Rope Course</h3>
+<p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                Glide safely over our outdoor arena with high quality harnesses and trained supervision. Feel the real airborne rush.
+              </p>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+<span>Harness Included</span>
+<span class="text-emerald-600 font-bold">FREE WITH TICKET</span>
+</div>
+</div>
+</div>
+<!-- Activity Card 4: Trampoline for Children -->
+<div class="activity-card group rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col" data-category="included">
+<div class="relative h-56 bg-sky-200 overflow-hidden">
+<div class="w-full h-full bg-gradient-to-tr from-pink-500 to-rose-400 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+<span class="text-7xl">🎪</span>
+</div>
+<span class="absolute top-4 right-4 bg-emerald-500 text-white text-xs font-fun font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow">
+              Included In Pass
+            </span>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-fun text-xl font-bold text-brand-navy group-hover:text-brand-blue transition-colors">Trampoline &amp; Kids Play</h3>
+<p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                Safe elastic bouncing arenas designed for kids and toddlers to burn energy and burst into laughter in shaded protection.
+              </p>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+<span>Kids Favorite</span>
+<span class="text-emerald-600 font-bold">FREE WITH TICKET</span>
+</div>
+</div>
+</div>
+<!-- Activity Card 5: All-Terrain ATV Ride -->
+<div class="activity-card group rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col" data-category="extra">
+<div class="relative h-56 bg-sky-200 overflow-hidden">
+<div class="w-full h-full bg-gradient-to-tr from-red-600 to-amber-600 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+<span class="text-7xl">🏎️</span>
+</div>
+<span class="absolute top-4 right-4 bg-brand-orange text-white text-xs font-fun font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow">
+              Special Experience
+            </span>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-fun text-xl font-bold text-brand-navy group-hover:text-brand-blue transition-colors">Rugged ATV Quad Bike Ride</h3>
+<p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                Take command of powerful 4-wheel red ATVs over our custom dirt and bump tracks. Pure motorsport thrill!
+              </p>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+<span>Safety Helmets Provided</span>
+<span class="text-brand-orange font-bold">Nominal Extra Charge</span>
+</div>
+</div>
+</div>
+<!-- Activity Card 6: Target Archery -->
+<div class="activity-card group rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col" data-category="extra">
+<div class="relative h-56 bg-sky-200 overflow-hidden">
+<div class="w-full h-full bg-gradient-to-tr from-emerald-500 to-teal-700 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+<span class="text-7xl">🎯</span>
+</div>
+<span class="absolute top-4 right-4 bg-brand-orange text-white text-xs font-fun font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow">
+              Special Experience
+            </span>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-fun text-xl font-bold text-brand-navy group-hover:text-brand-blue transition-colors">Precision Target Archery</h3>
+<p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                Test your focus and aim with real recurve bows and color-coded bullseye boards under instructor guidance.
+              </p>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+<span>Bows &amp; Arrows Set</span>
+<span class="text-brand-orange font-bold">Nominal Extra Charge</span>
+</div>
+</div>
+</div>
+<!-- Activity Card 7: Body Zorbing -->
+<div class="activity-card group rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col" data-category="extra">
+<div class="relative h-56 bg-sky-200 overflow-hidden">
+<div class="w-full h-full bg-gradient-to-tr from-purple-500 to-indigo-600 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+<span class="text-7xl">⚽</span>
+</div>
+<span class="absolute top-4 right-4 bg-brand-orange text-white text-xs font-fun font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow">
+              Special Experience
+            </span>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-fun text-xl font-bold text-brand-navy group-hover:text-brand-blue transition-colors">Inflatable Body Zorbing</h3>
+<p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                Slip inside giant transparent air bubbles and bump, roll, tumble, and clash playfully with your buddies on the green turf.
+              </p>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+<span>Hilarious Group Fun</span>
+<span class="text-brand-orange font-bold">Nominal Extra Charge</span>
+</div>
+</div>
+</div>
+<!-- Activity Card 8: Tactical Paintball -->
+<div class="activity-card group rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col" data-category="extra">
+<div class="relative h-56 bg-sky-200 overflow-hidden">
+<div class="w-full h-full bg-gradient-to-tr from-slate-700 to-slate-900 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+<span class="text-7xl">🔫</span>
+</div>
+<span class="absolute top-4 right-4 bg-brand-orange text-white text-xs font-fun font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow">
+              Special Experience
+            </span>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-fun text-xl font-bold text-brand-navy group-hover:text-brand-blue transition-colors">Paintball Combat Arena</h3>
+<p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                Gear up with tactical vests, helmets, and color markers. Strategy, team work, and friendly competition in safe barriers.
+              </p>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+<span>Gear &amp; Pellets</span>
+<span class="text-brand-orange font-bold">Nominal Extra Charge</span>
+</div>
+</div>
+</div>
+<!-- Activity Card 9: Fresh Delicious Food -->
+<div class="activity-card group rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col" data-category="extra">
+<div class="relative h-56 bg-sky-200 overflow-hidden">
+<div class="w-full h-full bg-gradient-to-tr from-yellow-400 to-amber-500 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+<span class="text-7xl">🍲</span>
+</div>
+<span class="absolute top-4 right-4 bg-brand-orange text-white text-xs font-fun font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow">
+              Picnic Food
+            </span>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-fun text-xl font-bold text-brand-navy group-hover:text-brand-blue transition-colors">Delicious Food &amp; Refreshments</h3>
+<p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                Hygienic, mouth-watering local Gujarati cuisine, snacks, cold beverages, tea, and picnic meals highly commended by all our guests.
+              </p>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+<span>Veg Special Menu</span>
+<span class="text-brand-orange font-bold">À la carte / Package</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ActivitiesSection -->
+<!-- BEGIN: PricingSection -->
+<section class="py-20 lg:py-28 bg-white relative" id="pricing">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="inline-flex items-center px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-fun font-bold uppercase tracking-wider mb-3">
+          Budget Friendly • Maximum Smiles
+        </span>
+<h2 class="text-3xl sm:text-5xl font-fun font-bold text-brand-navy">
+          Simple Entry. Big Fun.
+        </h2>
+<p class="mt-3 text-slate-600 text-base sm:text-lg">
+          Unbeatable value in South Gujarat. Bring your whole family or group without breaking the bank.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+<!-- Pricing Card: Children -->
+<div class="rounded-3xl border-2 border-blue-600 bg-white p-8 flex flex-col justify-between hover:border-brand-blue/50 transition-all shadow-sm hover:shadow-lg">
+<div>
+<div class="flex justify-between items-center">
+<span class="font-fun text-lg font-bold text-brand-blue uppercase">Child Ticket</span>
+<span class="text-xs font-semibold px-3 py-1 bg-sky-100 text-brand-blue rounded-full">Above 2.5 Feet</span>
+</div>
+<div class="mt-6 flex items-baseline gap-1">
+<span class="text-4xl sm:text-5xl font-fun font-extrabold text-brand-navy">₹200</span>
+<span class="text-slate-500 font-medium text-sm">/ Per Child</span>
+</div>
+<p class="text-xs text-brand-blue mt-1 font-semibold">*Children below 2.5 feet enter Free</p>
+<ul class="mt-8 space-y-4 text-sm text-slate-600">
+  <li class="flex items-center gap-3">
+    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-xs">✓</span>Full day pool &amp; kids slide access</li>
+  <li class="flex items-center gap-3">
+    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-xs">✓</span>Rain dance party area</li>
+  <li class="flex items-center gap-3">
+    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-xs">✓</span>Trampoline arena jump</li>
+  <li class="flex items-center gap-3">
+    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-xs">✓</span>Safe open lawn gardens &amp; rest spots</li>
+</ul>
+</div>
+</div>
+<!-- Pricing Card: Adult (Featured / Most Popular) -->
+<div class="rounded-3xl border-4 border-brand-orange bg-gradient-to-b from-amber-500/5 via-white to-white p-8 flex flex-col justify-between shadow-2xl relative transform md:-translate-y-2">
+  <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-brand-orange text-white font-fun text-xs font-bold uppercase tracking-wider px-5 py-1.5 rounded-full shadow-md">Most Popular Pass</div>
+<div>
+  <div class="flex justify-between items-center">
+    <span class="font-fun text-lg font-bold text-brand-orange uppercase">Adult Ticket</span>
+    <span class="text-xs font-semibold px-3 py-1 bg-orange-100 text-orange-800 rounded-full">Full Day 10-5</span>
+  </div>
+  <div class="mt-6 flex items-baseline gap-1">
+    <span class="text-5xl sm:text-6xl font-fun font-extrabold text-brand-navy">₹250</span>
+    <span class="text-slate-500 font-medium text-sm">/ Per Adult</span>
+  </div>
+  <p class="text-xs text-brand-orange mt-1 font-semibold">Special promotional entry price</p>
+  <ul class="mt-8 space-y-4 text-sm text-slate-700">
+    <li class="flex items-center gap-3">
+      <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs">✓</span>
+      <span class="font-medium">2 Big Swimming Pools Access</span>
+    </li>
+    <li class="flex items-center gap-3">
+      <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs">✓</span>
+      <span class="font-medium">Rain Dance with DJ sound system</span>
+    </li>
+    <li class="flex items-center gap-3">
+      <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs">✓</span>
+      <span class="font-medium">Zip Line aerial experience</span>
+    </li>
+    <li class="flex items-center gap-3">
+      <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs">✓</span>
+      <span class="font-medium">Changing rooms, showers &amp; lockers</span>
+    </li>
+    <li class="flex items-center gap-3">
+      <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs">✓</span>
+      <span class="font-medium">Spacious parking facility</span>
+    </li>
+  </ul>
+</div>
+</div>
+<!-- Pricing Card: Group / Tuition / Corporate Package -->
+<div class="rounded-3xl border-2 border-green-600 bg-white p-8 flex flex-col justify-between hover:border-brand-blue/50 transition-all shadow-sm hover:shadow-lg"><div>
+<div class="flex justify-between items-center">
+  <span class="font-fun text-lg font-bold text-brand-green uppercase">School &amp; Group</span>
+  <span class="text-xs font-semibold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full">25+ Guests</span>
+</div>
+<div class="mt-6 flex items-baseline gap-1">
+  <span class="text-3xl sm:text-4xl font-fun font-extrabold text-brand-navy">Custom</span>
+  <span class="text-slate-500 font-medium text-sm">/ Combo Deals</span>
+</div>
+<p class="text-xs text-brand-green mt-1 font-semibold">Includes Food + Pools + Activities</p>
+<ul class="mt-8 space-y-4 text-sm text-slate-600">
+  <li class="flex items-center gap-3">
+    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-xs">✓</span>Special student &amp; tuition concessions</li>
+  <li class="flex items-center gap-3">
+    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-xs">✓</span>Breakfast, Lunch &amp; High Tea combos</li>
+  <li class="flex items-center gap-3">
+    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-xs">✓</span>Dedicated group seating zones</li>
+  <li class="flex items-center gap-3">
+    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-xs">✓</span>Custom timing &amp; coordinator support</li>
+  </ul>
+</div>
+</div>
+</div>
+<!-- Quick note about food and add-ons -->
+<div class="mt-12 p-6 rounded-2xl bg-sky-50 border border-sky-200 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+<div>
+<h4 class="font-fun font-bold text-brand-navy text-base">Add Adventure Thrills On Spot</h4>
+<p class="text-xs sm:text-sm text-slate-600 mt-0.5">ATV Quad Biking, Target Archery, Zorbing &amp; Paintball can be booked at park counter as per your preference.</p>
+</div>
+<a class="shrink-0 text-xs sm:text-sm font-fun font-bold text-brand-blue hover:underline flex items-center gap-1" href="tel:+919558814187">
+<span>Direct Inquiries: +91 95588 14187</span>
+<span>→</span>
+</a>
+</div>
+</div>
+</section>
+<!-- END: PricingSection -->
+<!-- BEGIN: GallerySection -->
+<section class="py-20 lg:py-28 bg-slate-50 relative" id="gallery">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-12">
+<span class="inline-flex items-center px-4 py-1.5 rounded-full bg-sky-100 text-brand-blue text-xs font-fun font-bold uppercase tracking-wider mb-3">
+          Moments Of Happiness
+        </span>
+<h2 class="text-3xl sm:text-5xl font-fun font-bold text-brand-navy">
+          Park Photo Gallery
+        </h2>
+<p class="mt-3 text-slate-600 text-base sm:text-lg">
+          Take a look at real splashes, adventures, smiles, and picnic moments at Mama's Fun Land.
+        </p>
+<!-- Category Filter Buttons -->
+<div class="flex flex-wrap items-center justify-center gap-2 mt-8" id="galleryFilter">
+<button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-fun font-bold transition-all bg-brand-navy text-white" data-filter="all" type="button">ALL</button>
+<button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-fun font-bold transition-all bg-white text-slate-600 hover:text-brand-blue border border-slate-200" data-filter="water" type="button">WATER</button>
+<button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-fun font-bold transition-all bg-white text-slate-600 hover:text-brand-blue border border-slate-200" data-filter="adventure" type="button">ADVENTURE</button>
+<button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-fun font-bold transition-all bg-white text-slate-600 hover:text-brand-blue border border-slate-200" data-filter="family" type="button">FAMILY &amp; PICNIC</button>
+<button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-fun font-bold transition-all bg-white text-slate-600 hover:text-brand-blue border border-slate-200" data-filter="activities" type="button">ACTIVITIES</button>
+</div>
+</div>
+<!-- Masonry-like Responsive Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
+<!-- Gallery Item 1 (Uses Snap Original Image) -->
+<div class="gallery-item group relative rounded-3xl overflow-hidden shadow-md bg-white border border-slate-200/80 aspect-[4/3] cursor-pointer" data-category="activities" onclick="openLightbox('https://lh3.googleusercontent.com/aida-public/AB6AXuCQT32SxkUmg_tLtjtDSIiJvzF5d2XxkG0iEw1rGEsaJWcr-2u3WybhdgAriNjnDhZ4fR7-PiNigHhQzcuaXdwyMN_nUo9_I2bcSVOV_eeVrxDNRZEPie5CWExBGyOteJKj5zhxvR_F44SDJsApxpIBDRPfit4MQFxTTLJBosvNdceKI21Wf1hanmyo428qLCBmdGbrdlX29e-wN3c7b-5Wqn_51uMt-zMxtLWr23-hsLwy2DToYS6TlzUJHJIO7c8VKy0', 'Mama\'s Fun Land Official Banner')">
+<img alt="Mama's Fun Land Overview activities" class="w-full h-full group-hover:scale-110 transition-transform duration-500" src="Logo.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<span class="text-white font-fun font-bold text-lg">Full Park Overview • Butlav</span>
+</div>
+</div>
+<!-- Gallery Item 2: Pool & Water -->
+<div class="gallery-item group relative rounded-3xl overflow-hidden shadow-md bg-white border border-slate-200/80 aspect-[4/3] cursor-pointer">
+<div class="w-full h-full bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600 flex flex-col items-center justify-center p-6 text-white group-hover:scale-105 transition-transform duration-500">
+<span class="text-6xl mb-2">🌊</span>
+<span class="font-fun text-2xl font-bold text-center">2 Swimming Pools</span>
+<span class="text-xs uppercase tracking-wider text-cyan-100 mt-1">Filtered Water &amp; Music</span>
+</div>
+</div>
+<!-- Gallery Item 3: Quad Bike ATV -->
+<div class="gallery-item group relative rounded-3xl overflow-hidden shadow-md bg-white border border-slate-200/80 aspect-[4/3] cursor-pointer">
+<div class="w-full h-full bg-gradient-to-br from-amber-500 to-red-600 flex flex-col items-center justify-center p-6 text-white group-hover:scale-105 transition-transform duration-500">
+<span class="text-6xl mb-2">🏎️</span>
+<span class="font-fun text-2xl font-bold text-center">ATV Quad Rides</span>
+<span class="text-xs uppercase tracking-wider text-amber-100 mt-1">Off-road Dirt Track</span>
+</div>
+
+</div>
+<!-- Gallery Item 4: Zorbing Fun -->
+<div class="gallery-item group relative rounded-3xl overflow-hidden shadow-md bg-white border border-slate-200/80 aspect-[4/3] cursor-pointer">
+<div class="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 flex flex-col items-center justify-center p-6 text-white group-hover:scale-105 transition-transform duration-500">
+<span class="text-6xl mb-2">🎈</span>
+<span class="font-fun text-2xl font-bold text-center">Body Zorbing Battles</span>
+<span class="text-xs uppercase tracking-wider text-purple-100 mt-1">Lawn Arena Action</span>
+</div>
+</div>
+<!-- Gallery Item 5: Family & Tuition Picnic -->
+<div class="gallery-item group relative rounded-3xl overflow-hidden shadow-md bg-white border border-slate-200/80 aspect-[4/3] cursor-pointer">
+<div class="w-full h-full bg-gradient-to-br from-emerald-500 to-teal-700 flex flex-col items-center justify-center p-6 text-white group-hover:scale-105 transition-transform duration-500">
+<span class="text-6xl mb-2">🎒</span>
+<span class="font-fun text-2xl font-bold text-center">School &amp; Tuition Picnic</span>
+<span class="text-xs uppercase tracking-wider text-emerald-100 mt-1">Stress-free Weekday Tours</span>
+</div>
+</div>
+<!-- Gallery Item 6: Archery Range -->
+<div class="gallery-item group relative rounded-3xl overflow-hidden shadow-md bg-white border border-slate-200/80 aspect-[4/3] cursor-pointer">
+<div class="w-full h-full bg-gradient-to-br from-rose-500 to-orange-500 flex flex-col items-center justify-center p-6 text-white group-hover:scale-105 transition-transform duration-500">
+<span class="text-6xl mb-2">🎯</span>
+<span class="font-fun text-2xl font-bold text-center">Archery Bullseye</span>
+<span class="text-xs uppercase tracking-wider text-rose-100 mt-1">Hit The Target Zone</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: GallerySection -->
+<!-- BEGIN: ReviewsSection -->
+<section class="py-20 lg:py-28 bg-white relative" id="reviews">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Section Header -->
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="inline-flex items-center px-4 py-1.5 rounded-full bg-amber-100 text-amber-800 text-xs font-fun font-bold uppercase tracking-wider mb-3">Guest Testimonials</span>
+<h2 class="text-3xl sm:text-5xl font-fun font-bold text-brand-navy">Loved by Visitors &amp; Families</h2>
+<!-- Google Rating Badge -->
+<div class="mt-4 inline-flex items-center gap-3 bg-slate-50 border border-slate-200 px-5 py-2.5 rounded-full">
+<div class="flex items-center text-amber-400 text-lg">★★★★★</div>
+<span class="font-fun font-extrabold text-brand-navy text-base">4.1 / 5.0</span>
+<span class="text-xs text-slate-500 font-semibold border-l border-slate-300 pl-3">Verified Google Reviews</span>
+</div>
+</div>
+<!-- Testimonial Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Featured Real Guest Review -->
+<div class="rounded-3xl bg-sky-50/70 border border-sky-100 p-8 flex flex-col justify-between shadow-sm relative">
+<div class="absolute -top-3 -right-3 text-4xl opacity-20">❝</div>
+<div>
+<div class="flex text-amber-400 text-sm mb-4">★★★★★</div>
+<p class="text-slate-700 italic text-base leading-relaxed">"Best place. Visit during Office days so no hectic schedule and no people around. 2 swimming pools with good vibing music. Nice Place and food quality very fine 😇. I went with tuition children and they enjoyed a lot. Keep it up."</p>
+</div>
+<div class="mt-6 pt-4 border-t border-sky-200/60 flex items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-brand-blue text-white font-fun font-bold flex items-center justify-center text-lg shadow-sm">T</div>
+<div>
+<h4 class="font-fun font-bold text-brand-navy text-sm">Tuition Group Leader</h4>
+<p class="text-xs text-slate-500">Local Guide • Navsari Visit</p>
+</div>
+</div>
+</div>
+<!-- Guest Review 2 -->
+<div class="rounded-3xl bg-sky-50/70 border border-sky-100 p-8 flex flex-col justify-between shadow-sm relative">
+<div class="absolute -top-3 -right-3 text-4xl opacity-20">❝</div>
+<div>
+<div class="flex text-amber-400 text-sm mb-4">
+              ★★★★★
+            </div>
+<p class="text-slate-700 italic text-base leading-relaxed">
+              "At only ₹250 for adults, this is by far the most budget-friendly one day picnic near Navsari. The pools are neat, music keeps the atmosphere charged up, and kids loved the trampolines and zip-line!"
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-sky-200/60 flex items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-brand-orange text-white font-fun font-bold flex items-center justify-center text-lg shadow-sm">
+              P
+            </div>
+<div>
+<h4 class="font-fun font-bold text-brand-navy text-sm">Pratik Patel</h4>
+<p class="text-xs text-slate-500">Family Weekend Trip</p>
+</div>
+</div>
+</div>
+<!-- Guest Review 3 -->
+<div class="rounded-3xl bg-sky-50/70 border border-sky-100 p-8 flex flex-col justify-between shadow-sm relative">
+<div class="absolute -top-3 -right-3 text-4xl opacity-20">❝</div>
+<div>
+<div class="flex text-amber-400 text-sm mb-4">
+              ★★★★★
+            </div>
+<p class="text-slate-700 italic text-base leading-relaxed">
+              "Great spot for school picnics and youth groups. Body zorbing and ATV quad riding were super exciting. Tasty fresh snacks and peaceful natural location near Butlav substation."
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-sky-200/60 flex items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-brand-green text-white font-fun font-bold flex items-center justify-center text-lg shadow-sm">
+              D
+            </div>
+<div>
+<h4 class="font-fun font-bold text-brand-navy text-sm">Dharmesh Desai</h4>
+<p class="text-xs text-slate-500">Group Organizer</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ReviewsSection -->
+<!-- BEGIN: BookingFormSection -->
+<section class="py-20 lg:py-28 bg-gradient-to-br from-brand-navy via-slate-900 to-brand-dark text-white relative overflow-hidden" id="book">
+<!-- Background glow bubbles -->
+<div class="absolute top-0 right-0 w-96 h-96 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Explanatory Column -->
+<div class="lg:col-span-5 space-y-6">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-brand-cyan text-xs font-fun font-bold uppercase tracking-wider backdrop-blur-md">
+            Direct &amp; Instant Booking
+          </div>
+<h2 class="text-3xl sm:text-5xl font-fun font-bold leading-tight">
+            Reserve Your <span class="text-brand-orange">One Day Fun</span> Today!
+          </h2>
+<p class="text-slate-300 text-base leading-relaxed">
+            Fill out this quick form to send your picnic details directly to our WhatsApp team. We respond immediately with availability, lunch options, and special group offers.
+          </p>
+<div class="space-y-4 pt-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-brand-green/20 text-brand-green flex items-center justify-center font-bold text-xl">
+                💬
+              </div>
+<div>
+<h4 class="font-fun font-bold text-white text-base">WhatsApp Booking</h4>
+<p class="text-slate-400 text-xs">+91 95588 14187 (Instant confirmation)</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-brand-yellow/20 text-brand-yellow flex items-center justify-center font-bold text-xl">
+                ⏰
+              </div>
+<div>
+<h4 class="font-fun font-bold text-white text-base">Park Operational Hours</h4>
+<p class="text-slate-400 text-xs">10:00 AM to 5:00 PM (Every Day)</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-brand-cyan/20 text-brand-cyan flex items-center justify-center font-bold text-xl">
+                📍
+              </div>
+<div>
+<h4 class="font-fun font-bold text-white text-base">Quick Location</h4>
+<p class="text-slate-400 text-xs">Butlav (Near Satem &amp; Navsari)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Interactive Form Card -->
+<div class="lg:col-span-7">
+<div class="bg-white/10 backdrop-blur-xl border border-white/15 p-8 sm:p-10 rounded-3xl shadow-2xl">
+<form class="space-y-5" id="whatsappBookingForm" onsubmit="handleFormSubmit(event)">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<!-- Full Name -->
+<div>
+<label class="block text-xs font-fun font-semibold uppercase tracking-wider text-slate-300 mb-1.5" for="userName">
+                    Your Name *
+                  </label>
+<input class="w-full rounded-xl bg-white/10 border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-brand-cyan focus:border-transparent text-sm py-3 px-4" id="userName" placeholder="e.g. Rahul Patel" required="" type="text"/>
+</div>
+<!-- Phone Number -->
+<div>
+<label class="block text-xs font-fun font-semibold uppercase tracking-wider text-slate-300 mb-1.5" for="userPhone">
+                    Mobile Number *
+                  </label>
+<input class="w-full rounded-xl bg-white/10 border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-brand-cyan focus:border-transparent text-sm py-3 px-4" id="userPhone" placeholder="e.g. 9876543210" required="" type="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+<!-- Date of Visit -->
+<div>
+<label class="block text-xs font-fun font-semibold uppercase tracking-wider text-slate-300 mb-1.5" for="visitDate">
+                    Visit Date *
+                  </label>
+<input class="w-full rounded-xl bg-white/10 border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-brand-cyan focus:border-transparent text-sm py-3 px-4" id="visitDate" required="" type="date"/>
+</div>
+<!-- Number of Adults -->
+<div>
+<label class="block text-xs font-fun font-semibold uppercase tracking-wider text-slate-300 mb-1.5" for="adultCount">
+                    Adults (₹250)
+                  </label>
+<input class="w-full rounded-xl bg-white/10 border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-brand-cyan focus:border-transparent text-sm py-3 px-4" id="adultCount" min="1" required="" type="number" oninput="updateTotal()"/>
+</div>
+<!-- Number of Children -->
+<div>
+<label class="block text-xs font-fun font-semibold uppercase tracking-wider text-slate-300 mb-1.5" for="childCount">
+                    Children (₹200)
+                  </label>
+<input class="w-full rounded-xl bg-white/10 border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-brand-cyan focus:border-transparent text-sm py-3 px-4" id="childCount" min="0" type="number" value="0" oninput="updateTotal()"/>
+</div>
+</div>
+<!-- Total Price Display -->
+<div class="rounded-2xl bg-white/15 border border-white/25 px-6 py-4 flex items-center justify-between">
+<span class="font-fun font-bold text-white text-base">💰 Total Amount</span>
+<span class="font-fun font-extrabold text-brand-yellow text-2xl" id="totalAmount">₹ </span>
+</div>
+<!-- Message / Special Requests -->
+<div>
+<label class="block text-xs font-fun font-semibold uppercase tracking-wider text-slate-300 mb-1.5" for="userMessage">
+                  Message or Food Requirements (Optional)
+                </label>
+<textarea class="w-full rounded-xl bg-white/10 border-white/20 text-white placeholder-slate-400 focus:ring-2 focus:ring-brand-cyan focus:border-transparent text-sm py-3 px-4" id="userMessage" placeholder="Need food options, group concession, school picnic, or birthday party celebration..." rows="3"></textarea>
+</div>
+<!-- Submit Button -->
+<button class="w-full py-4 rounded-2xl bg-brand-green hover:bg-emerald-600 text-white font-fun font-bold text-lg tracking-wide shadow-xl shadow-emerald-600/30 flex items-center justify-center gap-3 transition-transform hover:-translate-y-0.5 active:translate-y-0" type="submit">
+<span>SEND BOOKING ON WHATSAPP</span>
+</button>
+<p class="text-center text-xs text-slate-400">
+                You will be redirected straight to WhatsApp with your details pre-composed.
+              </p>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: BookingFormSection -->
+<!-- BEGIN: LocationSection -->
+<section class="py-20 lg:py-28 bg-white relative" id="contact">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Location Details Column -->
+<div class="lg:col-span-6 space-y-6">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-fun font-bold uppercase tracking-wider">
+            Easy To Reach
+          </div>
+<h2 class="text-3xl sm:text-5xl font-fun font-bold text-brand-navy">
+            Find Your Way To The Fun
+          </h2>
+<p class="text-slate-600 text-base leading-relaxed">
+            Conveniently located in Butlav village, Sarpor, Navsari district. An easy 15–20 minutes drive from Navsari Railway Station and National Highway with smooth asphalt road access.
+          </p>
+<!-- Address & Contact Info Box -->
+<div class="space-y-4 pt-2">
+<div class="p-5 rounded-2xl bg-sky-50 border border-sky-100 flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-brand-blue text-white flex items-center justify-center text-xl shrink-0">
+                📍
+              </div>
+<div>
+<h4 class="font-fun font-bold text-brand-navy text-base">Physical Address</h4>
+<p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                  GEB 66KV Substation, Near Satem, Butlav, Sarpor, Gujarat 396466
+                </p>
+</div>
+</div>
+<div class="p-5 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-brand-green text-white flex items-center justify-center text-xl shrink-0">
+                📞
+              </div>
+<div>
+<h4 class="font-fun font-bold text-brand-navy text-base">Direct Phone &amp; WhatsApp</h4>
+<p class="text-slate-600 text-sm mt-1">
+<a class="font-bold text-brand-green hover:underline" href="tel:+919558814187">+91 95588 14187</a>
+</p>
+</div>
+</div>
+<div class="p-5 rounded-2xl bg-amber-50 border border-amber-100 flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-brand-orange text-white flex items-center justify-center text-xl shrink-0">
+                🕒
+              </div>
+<div>
+<h4 class="font-fun font-bold text-brand-navy text-base">Operating Timings</h4>
+<p class="text-slate-600 text-sm mt-1">
+                  10:00 AM – 5:00 PM (Open 7 Days A Week)
+                </p>
+</div>
+</div>
+</div>
+<!-- Get Directions Button -->
+<div class="pt-2 flex flex-wrap gap-4">
+<a class="px-6 py-3.5 rounded-xl bg-brand-blue hover:bg-sky-700 text-white font-fun font-bold text-sm shadow-md flex items-center gap-2 transition-transform hover:-translate-y-0.5" href="https://maps.google.com/?q=Mama's+Fun+Land+GEB+66KV+Substation+Near+Satem+Butlav+Sarpor+Gujarat+396466" rel="noopener noreferrer" target="_blank">
+<span>Get Directions on Google Maps</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</a>
+<a class="px-6 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-fun font-bold text-sm transition-colors flex items-center gap-2" href="tel:+919558814187">
+<span>Call For Road Help</span>
+</a>
+</div>
+</div>
+<!-- Right Visual Map Card Column -->
+<div class="lg:col-span-6">
+<div class="rounded-3xl overflow-hidden border-4 border-slate-100 shadow-xl bg-slate-100 relative aspect-square sm:aspect-video lg:aspect-[4/3] flex flex-col items-center justify-center text-center p-6">
+<!-- Map Placeholder Visual -->
+<div class="absolute inset-0 bg-gradient-to-br from-sky-100 via-emerald-50 to-blue-100 opacity-90"></div>
+<!-- Map Grid Lines Pattern -->
+<div class="absolute inset-0 bg-[radial-gradient(#0284c7_1px,transparent_1px)] [background-size:24px_24px] opacity-25"></div>
+<div class="relative z-10 space-y-4 max-w-sm">
+<div class="w-20 h-20 rounded-full bg-white shadow-xl mx-auto flex items-center justify-center text-3xl animate-bounce">📍</div>
+<div>
+<h3 class="font-fun font-bold text-2xl text-brand-navy">MAMA'S FUN LAND</h3>
+<p class="text-xs text-slate-600 mt-1 font-medium">Near 66KV GEB Substation, Satem - Butlav Road, Sarpor, Gujarat 396466</p>
+</div>
+<a class="inline-block px-5 py-2.5 rounded-xl bg-brand-orange hover:bg-orange-600 text-white font-fun font-bold text-xs uppercase tracking-wider shadow-lg shadow-orange-500/30 transition-transform active:scale-95" href="https://maps.google.com/?q=Mama's+Fun+Land+GEB+66KV+Substation+Near+Satem+Butlav+Sarpor+Gujarat+396466" rel="noopener noreferrer" target="_blank">Launch GPS Navigation</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: LocationSection -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-brand-dark text-white relative pt-20 pb-10 overflow-hidden">
+<!-- Top Wave Divider -->
+<div class="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
+<svg class="relative block w-full h-8 sm:h-12 text-white" preserveaspectratio="none" viewbox="0 0 1200 120">
+<path d="M0,0 C300,90 600,0 1200,60 L1200,0 L0,0 Z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+<!-- Brand Info -->
+<div class="lg:col-span-2 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-14 h-14 rounded-6xl p-1 shadow-md">
+<img alt="Mama's Fun Land Logo" class="w-full h-full object-contain" src="Logo.jpg"/>
+</div>
+<div>
+<h3 class="font-fun text-2xl font-bold tracking-tight text-white leading-none">
+                Mama's <span class="text-brand-orange">Fun Land</span>
+</h3>
+<p class="text-xs font-bold text-brand-cyan uppercase tracking-widest mt-1">Butlav, Gujarat</p>
+</div>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed max-w-sm">Adventure and water picnic retreat. Swimming pools, rain dance, zip line, ATV quad biking, trampoline and tasty refreshments for family and school outings.</p>
+<div class="pt-2 flex items-center gap-3">
+<a aria-label="WhatsApp" class="w-10 h-10 rounded-xl bg-brand-green/20 text-brand-green hover:bg-brand-green hover:text-white flex items-center justify-center transition-colors" href="https://wa.me/919558814187" rel="noopener noreferrer" target="_blank">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path></svg>
+</a>
+<a aria-label="Direct Phone Call" class="w-10 h-10 rounded-xl bg-brand-blue/20 text-brand-blue hover:bg-brand-blue hover:text-white flex items-center justify-center transition-colors" href="tel:+919558814187">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+<!-- Quick Links -->
+<div class="space-y-3">
+<h4 class="font-fun font-bold text-white text-base uppercase tracking-wider">Quick Navigation</h4>
+<ul class="space-y-2 text-sm text-slate-400">
+<li><a class="hover:text-brand-cyan transition-colors" href="#hero">Home Page</a></li>
+<li><a class="hover:text-brand-cyan transition-colors" href="#about">About Mama's Land</a></li>
+<li><a class="hover:text-brand-cyan transition-colors" href="#activities">All Attractions</a></li>
+<li><a class="hover:text-brand-cyan transition-colors" href="#pricing">Entry Passes</a></li>
+<li><a class="hover:text-brand-cyan transition-colors" href="#gallery">Park Photos</a></li>
+<li><a class="hover:text-brand-cyan transition-colors" href="#reviews">Guest Reviews</a></li>
+</ul>
+</div>
+<!-- Activities List -->
+<div class="space-y-3">
+<h4 class="font-fun font-bold text-white text-base uppercase tracking-wider">Park Highlights</h4>
+<ul class="space-y-2 text-sm text-slate-400">
+<li><span class="text-slate-300">2 Swimming Pools</span></li>
+<li><span class="text-slate-300">Rain Dance with Music</span></li>
+<li><span class="text-slate-300">Aerial Zip-Line</span></li>
+<li><span class="text-slate-300">All-Terrain ATV Ride</span></li>
+<li><span class="text-slate-300">Target Archery Set</span></li>
+<li><span class="text-slate-300">Inflatable Body Zorbing</span></li>
+<li><span class="text-slate-300">Kids Safe Trampolines</span></li>
+</ul>
+</div>
+<!-- Hours & Quick Booking Contact -->
+<div class="space-y-3">
+<h4 class="font-fun font-bold text-white text-base uppercase tracking-wider">Plan Your Day</h4>
+<div class="text-sm text-slate-400 space-y-2">
+<p><span class="text-white font-medium">Timings:</span> 10:00 AM – 5:00 PM</p>
+<p><span class="text-white font-medium">Days:</span> Monday – Sunday (All Days)</p>
+<p><span class="text-white font-medium">Child Pass:</span> ₹200 (Above 2.5 ft)</p>
+<p><span class="text-white font-medium">Adult Pass:</span> ₹250 (Full Entry)</p>
+</div>
+</div>
+</div>
+<!-- Copyright & Bottom Bar -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+<p>© <span id="currentYear"></span> Mama's Fun Land (Butlav, Gujarat). All rights reserved.</p>
+<p class="flex items-center gap-2">
+<span>Crafted for Fun &amp; Family Moments</span>
+<span>•</span>
+<a class="hover:text-brand-orange transition-colors" href="#hero">Back to top ↑</a>
+</p>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+<!-- BEGIN: InteractiveScripts -->
+<!-- Ambient Bubbles Canvas Generator Script -->
+<script data-purpose="ambient-bubbles">
+    (function initBubbles() {
+      const canvas = document.getElementById('ambientBubbles');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let bubbles = [];
+
+      function resize() {
+        width = canvas.width = canvas.parentElement.offsetWidth;
+        height = canvas.height = canvas.parentElement.offsetHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      class Bubble {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          this.x = Math.random() * width;
+          this.y = height + Math.random() * 50;
+          this.size = Math.random() * 12 + 6;
+          this.speed = Math.random() * 1.2 + 0.6;
+          this.wobble = Math.random() * 2;
+          this.wobbleSpeed = Math.random() * 0.03 + 0.01;
+          this.alpha = Math.random() * 0.35 + 0.15;
+        }
+        update() {
+          this.y -= this.speed;
+          this.wobble += this.wobbleSpeed;
+          this.x += Math.sin(this.wobble) * 0.6;
+          if (this.y < -30) {
+            this.reset();
+          }
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(0, 196, 204, ${this.alpha})`;
+          ctx.fill();
+
+          // Bubble glint
+          ctx.beginPath();
+          ctx.arc(this.x - this.size * 0.3, this.y - this.size * 0.3, this.size * 0.25, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha + 0.2})`;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < 28; i++) {
+        bubbles.push(new Bubble());
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        bubbles.forEach(b => {
+          b.update();
+          b.draw();
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+  </script>
+<!-- Mobile Drawer & Tab Filtering Script -->
+<script data-purpose="mobile-and-tabs">
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Current Year Footer
+      const yearEl = document.getElementById('currentYear');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // 2. Mobile Nav Drawer Toggle
+      const toggleBtn = document.getElementById('mobileMenuToggle');
+      const drawer = document.getElementById('mobileDrawer');
+      const burgerIcon = document.getElementById('burgerIcon');
+      const closeIcon = document.getElementById('closeIcon');
+
+      if (toggleBtn && drawer) {
+        toggleBtn.addEventListener('click', () => {
+          const isOpen = !drawer.classList.contains('hidden');
+          if (isOpen) {
+            drawer.classList.add('hidden');
+            burgerIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+          } else {
+            drawer.classList.remove('hidden');
+            burgerIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+            toggleBtn.setAttribute('aria-expanded', 'true');
+          }
+        });
+
+        // Close on link click
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            drawer.classList.add('hidden');
+            burgerIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // 3. Activity Category Tab Filter
+      const activityTabs = document.querySelectorAll('.activity-tab-btn');
+      const activityCards = document.querySelectorAll('.activity-card');
+
+      activityTabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+          activityTabs.forEach(b => {
+            b.classList.remove('bg-brand-navy', 'text-white', 'shadow-md');
+            b.classList.add('bg-white', 'text-slate-600');
+          });
+          btn.classList.add('bg-brand-navy', 'text-white', 'shadow-md');
+          btn.classList.remove('bg-white', 'text-slate-600');
+
+          const target = btn.getAttribute('data-target');
+          activityCards.forEach(card => {
+            const cat = card.getAttribute('data-category');
+            if (target === 'all' || cat === target) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // 4. Gallery Category Filter
+      const galleryBtns = document.querySelectorAll('.gallery-filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+
+      galleryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          galleryBtns.forEach(b => {
+            b.classList.remove('bg-brand-navy', 'text-white');
+            b.classList.add('bg-white', 'text-slate-600');
+          });
+          btn.classList.add('bg-brand-navy', 'text-white');
+          btn.classList.remove('bg-white', 'text-slate-600');
+
+          const filter = btn.getAttribute('data-filter');
+          galleryItems.forEach(item => {
+            const cat = item.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+
+    // 5. Lightbox Modal functions
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('lightboxModal');
+      const img = document.getElementById('lightboxImage');
+      const cap = document.getElementById('lightboxCaption');
+      if (!modal || !img) return;
+      img.src = src;
+      cap.textContent = caption || '';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // 6. Total Price Calculator
+    function updateTotal() {
+      const adults = parseInt(document.getElementById('adultCount').value) || 0;
+      const children = parseInt(document.getElementById('childCount').value) || 0;
+      const total = (adults * 250) + (children * 200);
+      document.getElementById('totalAmount').textContent = '₹' + total;
+    }
+
+    // 7. WhatsApp Booking Form Pre-composer
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('userName').value.trim();
+      const phone = document.getElementById('userPhone').value.trim();
+      const date = document.getElementById('visitDate').value;
+      const adults = document.getElementById('adultCount').value;
+      const children = document.getElementById('childCount').value;
+      const message = document.getElementById('userMessage').value.trim();
+
+      const total = (parseInt(adults) * 250) + (parseInt(children) * 200);
+      const text = `*New Booking Inquiry - Mama's Fun Land (Butlav)*\n\n` +
+                   `👤 *Name:* ${name}\n` +
+                   `📱 *Phone:* ${phone}\n` +
+                   `📅 *Visit Date:* ${date}\n` +
+                   `👥 *Adults (₹250):* ${adults}\n` +
+                   `🧒 *Children (₹200):* ${children}\n` +
+                   `💰 *Total Amount:* ₹${total}\n` +
+                   (message ? `📝 *Notes/Food:* ${message}\n\n` : `\n`) +
+                   `Please confirm ticket booking & availability!`;
+
+      const encoded = encodeURIComponent(text);
+      const url = `https://wa.me/919558814187?text=${encoded}`;
+      window.open(url, '_blank');
+    }
+  </script>
+<!-- END: InteractiveScripts -->
+</body></html>
